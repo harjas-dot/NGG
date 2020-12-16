@@ -1,0 +1,78 @@
+import random   
+
+p=random.randint(1,500)
+o=random.randint(1500,2000)
+a=random.randint(p,o)
+score=100
+h=0
+p-=1
+o+=1
+#print(a)
+#------------------------
+def hint1():
+    ch1=a%2
+    if ch1==0:
+        print("HINT:It is an even number")
+    else:
+        print("HINT:It is a odd number")
+
+def hint2():
+    ch2=a%3
+    if ch2==0:
+        print("HINT:It is divisible by 3")
+    else:
+        print("HINT:It IS NOT divisible by 3")
+
+def hint3():
+    ch3=a%5
+    if ch3==0:
+        print("HINT:It is divisible by 5")
+    else:
+        print("HINT:It IS NOT divisible by 5")
+
+def hint4():
+    ch4=a%7
+    if ch4==0:
+        print("HINT:It is divisible by 7")
+    else:
+        print("HINT:It IS NOT divisible by 7")
+
+def hint5():
+    ch5=a%13
+    if ch5==0:
+        print("HINT:It IS divisible by 13")
+    else:
+        print("HINT:It IS NOT divisible by 13")
+#---------------------------------------------
+    
+while score!=-20:
+    c=int(input(f"GUESS A NUMBER BETWQEEN {p} AND {o}"))
+    if c==a:
+        print("Your SCORE is:")
+        print(score)
+        break
+    else:
+        score-=20
+        print("OOPS!!! U LOSE 20 POINTS")
+        if h==0:
+            hint1()
+            h+=1
+        elif h==1:
+            hint5()
+            h+=1
+        elif h==2:
+            hint3()
+            h+=1
+        elif h==3:
+            hint4()
+            h+=1
+        elif h==4:
+            hint2()
+            h+=1
+        
+if h==5:
+    score+=20
+    print("YOU LOSE") 
+    print("The number was:",a)
+    print("your score is")
+    print(score)     
